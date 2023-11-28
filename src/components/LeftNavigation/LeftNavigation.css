@@ -1,0 +1,25 @@
+.left-navigation{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 200px;
+  /* padding: 2em 0; */
+  text-align: left;
+  height: 100vh;
+}
+
+/* .nav-heading{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nav-item{
+  margin-top: 0;
+  margin-bottom: 0;
+} */
+
+.nav-list {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+}
