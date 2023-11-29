@@ -3,15 +3,9 @@ import RightSidebarCard from './RightSidebarCard/RightSidebarCard'
 
 const RightSideBar = () => {
   return (
-    <div className='right-sidebar'>
-      <div className='top-rated'>
-        <RightSidebarCard />
-        <RightSidebarCard />
-        <RightSidebarCard />
-      </div>
-      <div className='favorite-genres'>
-        {/* <FavoriteGenres /> */}
-      </div>
+    <div className="right-sidebar">
+      <h3>Latest Top Rated</h3>
+      <RightSidebarCard />
     </div>
   )
 }

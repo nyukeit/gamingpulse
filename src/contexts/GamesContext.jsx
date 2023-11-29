@@ -1,5 +1,5 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 
-const GamesContext = useContext();
+const GamesContext = createContext();
 
 export default GamesContext;

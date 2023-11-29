@@ -7,8 +7,9 @@
 }
 
 .card-img {
-  width: 30%;
-  object-fit: cover;
+  width: 50%;
+  object-fit: contain;
+  overflow: hidden;
 }
 
 .card-thumbnail {
@@ -16,9 +17,8 @@
 }
 
 .card-meta {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  text-align: left;
+  margin-left: 1em;
 }
 
 h4, p, span {
