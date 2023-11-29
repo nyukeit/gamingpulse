@@ -1,11 +1,16 @@
-import './PrimaryCard.css'
+import './PrimaryCard.css';
 
-const PrimaryCard = () => {
+const PrimaryCard = ({ games, currentCardIndex }) => {
   return (
     <div className="primary-card">
-      <img src="https://wehco.media.clients.ellingtoncms.com/imports/adg/photos/204035039_0410jason001_t800.jpg?90232451fbcadccc64a17de7521d859a8f88077d" className="card-img-top" alt="primary-card" />
+      {games.length > 0 && (
+        <div>
+          <img className="main_picture" src={games[currentCardIndex].background_image} alt={games[currentCardIndex].name} />
+          <h1>{games[currentCardIndex].name}</h1>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default PrimaryCard
+export default PrimaryCard;
