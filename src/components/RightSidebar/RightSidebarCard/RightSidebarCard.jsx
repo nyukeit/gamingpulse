@@ -23,13 +23,13 @@ const RightSidebarCard = () => {
     <>
     {
       topRatedGames.map((game, index) => 
-        <div className="card" key={index}>
-          <div className="card-img">
-            <img src={game.background_image} alt={game.name} className="card-thumbnail" />
+        <div className="rs-card" key={index}>
+          <div className="rs-card-img">
+            <img src={game.background_image} alt={game.name} className="rs-card-thumbnail" />
           </div>
-          <div className="card-meta">
-            <h4>{game.name}</h4>
-            <p>{game.genres[0].name}</p>
+          <div className="rs-card-meta">
+            <h4 className='rs-card-title'>{game.name}</h4>
+            <p className='rs-card-genre'>{game.genres[0].name}</p>
             <span><i>⭐</i> {game.rating}</span>
           </div>
       </div>        
