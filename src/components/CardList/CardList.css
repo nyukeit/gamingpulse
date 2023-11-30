@@ -13,7 +13,7 @@
     margin-top: 1em;
   }
   .card_component {
-    width: calc(44% - 10px); /* Pour deux cartes par ligne avec un espace de 20px entre les cartes */
+    width: calc(44% - 10px);
     position: relative;
   }
   h1{

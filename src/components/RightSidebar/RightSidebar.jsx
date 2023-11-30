@@ -4,7 +4,7 @@ import RightSidebarCard from './RightSidebarCard/RightSidebarCard'
 const RightSideBar = () => {
   return (
     <div className="right-sidebar">
-      <h3>Latest Top Rated</h3>
+      <h2>Latest Top Rated</h2>
       <RightSidebarCard />
     </div>
   )
