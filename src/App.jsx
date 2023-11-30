@@ -2,8 +2,9 @@ import './App.css';
 import LeftNavigation from './components/LeftNavigation/LeftNavigation';
 import PrimaryCard from './components/PrimaryCard/PrimaryCard';
 import RightSideBar from './components/RightSidebar/RightSidebar';
-import axios from 'axios'; // Import d'Axios
+import axios from 'axios';
 import { useEffect, useState } from 'react';
+import SearchBar from './components/SearchBar/SearchBar';
 
 function App() {
   const [games, setGames] = useState([]);
@@ -37,9 +38,14 @@ function App() {
 
   return (
     <>
+    <div className='topbar'>
+      <SearchBar />
+    </div>
+    <div className='main-container'>
       <LeftNavigation />
       <PrimaryCard games={games} currentCardIndex={currentCardIndex} />
       <RightSideBar />
+    </div>
     </>
   );
 }
