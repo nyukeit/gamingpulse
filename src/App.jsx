@@ -1,4 +1,5 @@
 import './App.css';
+import CardList from './components/CardList/CardList';
 import LeftNavigation from './components/LeftNavigation/LeftNavigation';
 import PrimaryCard from './components/PrimaryCard/PrimaryCard';
 import RightSideBar from './components/RightSidebar/RightSidebar';
@@ -27,7 +28,10 @@ function App() {
     <>
     <GamesContext.Provider value={{games:games, setGames:setGames}}>
       <LeftNavigation />
-      <PrimaryCard />
+      <section>
+        <PrimaryCard />
+        <CardList />
+      </section>
       <RightSideBar />
     </GamesContext.Provider>
     </>
