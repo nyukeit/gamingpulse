@@ -24,6 +24,7 @@ export default function Results() {
             <div className="bigcard-meta-footer">
               <span className='bigcard-rating'><i>⭐</i> {game.rating}</span>
               <span className='bigcard-rating'><i>🎯</i> {game.metacritic}</span>
+              {/* <span className='bigcard-rating'><i>🎯</i> {game.esrb_rating.name}</span> */}
             </div>
           </div>
         </div>

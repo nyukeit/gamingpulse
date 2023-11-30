@@ -14,7 +14,7 @@ function App() {
   
   const fetchData = async () => {
       const REACT_API_KEY = '5bad98172a4a4656a957008bfc985ab1';
-      const response = await axios.get(`https://api.rawg.io/api/games?key=${REACT_API_KEY}`);
+      const response = await axios.get(`https://api.rawg.io/api/games?page_size=50&key=${REACT_API_KEY}`);
       // setGames(response.data.results);
     if (ParentPlatform === '') {
       setGames(response.data.results);

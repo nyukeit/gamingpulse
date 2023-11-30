@@ -1,9 +1,6 @@
-// import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
 import './LeftNavigation.css';
 import { useContext } from 'react';
 import GamesContext from '../../contexts/GamesContext';
-// import SearchResult from '../../pages/SearchResult';
-// import NotFoundPage from '../../pages/NotFound';
 
 const LeftNavigation = () => {
   const {setParentPlatform} = useContext(GamesContext);
@@ -11,7 +8,10 @@ const LeftNavigation = () => {
     <div className="left-navigation">
        <div className='nav'>
        <ul className='nav-list'>
-         <h4 className="nav-heading">Platforms</h4>
+         <li className="nav-item">
+           <a onClick={() => setParentPlatform('')}>Home</a>
+         </li>
+         <hr></hr>
          <li className="nav-item">
            <a onClick={() => setParentPlatform('PlayStation')}>Playstation</a>
          </li>
@@ -21,23 +21,20 @@ const LeftNavigation = () => {
          <li className="nav-item">
            <a onClick={() => setParentPlatform('PC')}>PC</a>
          </li>
-         {/* <li className="nav-item">
-           <a href="/search">More Platforms</a>
-         </li> */}
        </ul>
+       <hr></hr>
        <ul className='nav-list'>
-         <h4 className="nav-heading">Filtres</h4>
-         <li className="nav-item">
-           <a href="/">Genres</a>
+       <li className="nav-item">
+           <a onClick={() => setParentPlatform('')}>Genres</a>
          </li>
          <li className="nav-item">
-           <a href="/search">Tags</a>
+           <a onClick={() => setParentPlatform('PlayStation')}>Publishers</a>
          </li>
          <li className="nav-item">
-           <a href="/search">Release</a>
+           <a onClick={() => setParentPlatform('Xbox')}>Release</a>
          </li>
          <li className="nav-item">
-           <a href="/search">Publisher</a>
+           <a onClick={() => setParentPlatform('PC')}>Tags</a>
          </li>
        </ul>
        </div>
@@ -45,7 +42,6 @@ const LeftNavigation = () => {
         <p className='copyright'>© 2023 Gaming Pulse</p>
       </div>      
     </div>
-  // </>
   )
 }
 
