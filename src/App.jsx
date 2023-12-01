@@ -3,6 +3,7 @@ import CardList from './components/CardList/CardList';
 import LeftNavigation from './components/LeftNavigation/LeftNavigation';
 import PrimaryCard from './components/PrimaryCard/PrimaryCard';
 import RightSideBar from './components/RightSidebar/RightSidebar';
+import SearchBar from './components/SearchBar/SearchBar';
 import axios from 'axios'; // Import d'Axios
 import { useEffect, useState } from 'react';
 import GamesContext from '../src/contexts/GamesContext';
@@ -29,6 +30,9 @@ function App() {
     <GamesContext.Provider value={{games:games, setGames:setGames}}>
       <LeftNavigation />
       <section>
+      <div className="topbar">
+        <SearchBar />
+      </div>
         <PrimaryCard />
         <CardList />
       </section>
