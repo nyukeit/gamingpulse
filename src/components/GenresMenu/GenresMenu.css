@@ -1,0 +1,14 @@
+.genres-menu {
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 4px;
+  padding: 1.2em;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count {
+  font-size: 0.7em;
+  margin-left: 5px;
+  color: lightslategray;
+}

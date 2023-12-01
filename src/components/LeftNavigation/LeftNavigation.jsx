@@ -2,8 +2,17 @@ import './LeftNavigation.css';
 import { useContext } from 'react';
 import GamesContext from '../../contexts/GamesContext';
 
-const LeftNavigation = () => {
+const LeftNavigation = ({isVisible, setIsVisible}) => {
   const {setParentPlatform} = useContext(GamesContext);
+
+  const handleVisibility = () => {
+    if (isVisible) {
+      setIsVisible(false);
+    } else {
+      setIsVisible(true);
+    }
+  }
+
   return (
     <div className="left-navigation">
        <div className='nav'>
@@ -25,7 +34,7 @@ const LeftNavigation = () => {
        <hr></hr>
        <ul className='nav-list'>
        <li className="nav-item">
-           <a onClick={() => setParentPlatform('')}>Genres</a>
+           <a onClick={handleVisibility}>Genres</a>
          </li>
          <li className="nav-item">
            <a onClick={() => setParentPlatform('PlayStation')}>Publishers</a>

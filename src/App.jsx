@@ -5,6 +5,7 @@ import PrimaryCard from './components/PrimaryCard/PrimaryCard';
 import RightSideBar from './components/RightSidebar/RightSidebar';
 import SearchBar from './components/SearchBar/SearchBar';
 import Results from './components/Results/Results'
+import GenresMenu from './components/GenresMenu/GenresMenu';
 import axios from 'axios'; // Import d'Axios
 import { useEffect, useState } from 'react';
 import GamesContext from '../src/contexts/GamesContext';
@@ -12,6 +13,7 @@ import GamesContext from '../src/contexts/GamesContext';
 function App() {
   const [games, setGames] = useState([]);
   const [ParentPlatform, setParentPlatform] = useState('');
+  const [isVisible, setIsVisible] = useState(true);
   
   const fetchData = async () => {
       const REACT_API_KEY = '5bad98172a4a4656a957008bfc985ab1';
@@ -31,7 +33,8 @@ function App() {
   return (
     <>
     <GamesContext.Provider value={{games:games, setGames:setGames, ParentPlatform:ParentPlatform, setParentPlatform:setParentPlatform}}>
-      <LeftNavigation />
+      <LeftNavigation isVisible={isVisible} setIsVisible={setIsVisible} />
+      { isVisible ? <GenresMenu /> : null  }
       <section>
       <div className="topbar">
         <SearchBar />
@@ -39,8 +42,6 @@ function App() {
         {
           ParentPlatform === '' ? <><PrimaryCard /><CardList /></> : <Results />
         }
-        {/* <PrimaryCard />
-        <CardList /> */}
       </section>
       <RightSideBar />
     </GamesContext.Provider>
