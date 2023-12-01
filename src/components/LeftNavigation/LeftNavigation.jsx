@@ -5,14 +5,6 @@ import GamesContext from '../../contexts/GamesContext';
 const LeftNavigation = ({isVisible, setIsVisible}) => {
   const {setParentPlatform} = useContext(GamesContext);
 
-  const handleVisibility = () => {
-    if (isVisible) {
-      setIsVisible(false);
-    } else {
-      setIsVisible(true);
-    }
-  }
-
   return (
     <div className="left-navigation">
        <div className='nav'>
@@ -34,7 +26,7 @@ const LeftNavigation = ({isVisible, setIsVisible}) => {
        <hr></hr>
        <ul className='nav-list'>
        <li className="nav-item">
-           <a onClick={handleVisibility}>Genres</a>
+           <a onMouseEnter={()=>setIsVisible(true)} onMouseLeave={()=>setIsVisible(false)}>Genres</a>
          </li>
          <li className="nav-item">
            <a onClick={() => setParentPlatform('PlayStation')}>Publishers</a>

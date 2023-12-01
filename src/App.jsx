@@ -13,7 +13,7 @@ import GamesContext from '../src/contexts/GamesContext';
 function App() {
   const [games, setGames] = useState([]);
   const [ParentPlatform, setParentPlatform] = useState('');
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
   
   const fetchData = async () => {
       const REACT_API_KEY = '5bad98172a4a4656a957008bfc985ab1';
