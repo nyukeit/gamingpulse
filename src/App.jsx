@@ -3,6 +3,7 @@ import CardList from './components/CardList/CardList';
 import LeftNavigation from './components/LeftNavigation/LeftNavigation';
 import PrimaryCard from './components/PrimaryCard/PrimaryCard';
 import RightSideBar from './components/RightSidebar/RightSidebar';
+import SearchBar from './components/SearchBar/SearchBar';
 import Results from './components/Results/Results'
 import axios from 'axios'; // Import d'Axios
 import { useEffect, useState } from 'react';
@@ -32,6 +33,9 @@ function App() {
     <GamesContext.Provider value={{games:games, setGames:setGames, ParentPlatform:ParentPlatform, setParentPlatform:setParentPlatform}}>
       <LeftNavigation />
       <section>
+      <div className="topbar">
+        <SearchBar />
+      </div>
         {
           ParentPlatform === '' ? <><PrimaryCard /><CardList /></> : <Results />
         }
