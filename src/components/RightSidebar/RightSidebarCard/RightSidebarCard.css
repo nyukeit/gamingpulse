@@ -1,0 +1,42 @@
+.rs-card {
+  /* display: flex;
+  justify-content: start; */
+  width: 200px;
+  margin: 0 0 1em 0;
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 4px;
+}
+
+.rs-card-img {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.rs-card-thumbnail {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+p, h4 {
+  margin: 0;
+}
+
+.rs-card-meta {
+  padding: 0.7em;
+  text-align: left;
+  margin: 0.5em;
+}
+
+.rs-card-title {
+  font-size: 1.3em;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.rs-card-genre {
+  font-size: 0.9em;
+  font-weight: 500;
+  color: lightslategrey;
+}

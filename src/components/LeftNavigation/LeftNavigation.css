@@ -1,0 +1,15 @@
+.left-navigation{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* width: 300px; */
+  padding: 2em;
+  text-align: left;
+  height: 100vh;
+}
+
+.nav-list {
+  text-align: left;
+  list-style-type: none;
+  padding: 0;
+}
