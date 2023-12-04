@@ -1,0 +1,31 @@
+.game-details{
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+    padding-top: 2rem;
+}
+
+.left-section{
+    max-width: 75%;
+}
+.meta{
+    display: flex;
+    justify-content: space-around;
+}
+#detail-picture {
+    max-width: 400px;
+    max-height: 800px;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+  }
+.section-right{
+    text-align: left;
+}
+.section-right p{
+    padding-left: 2rem;
+}
+.description{
+    text-align: justify;
+    padding-top: 2rem;
+}
