@@ -24,7 +24,7 @@ const CardList = () => {
 
 
 CardList.propTypes = {
-    games: PropTypes.array.isRequired,
+    games: PropTypes.array,
   };
 
 export default CardList;

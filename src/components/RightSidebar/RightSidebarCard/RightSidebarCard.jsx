@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import GamesContext from '../../../contexts/GamesContext';
 import './RightSidebarCard.css'
+import { Link } from 'react-router-dom';
 
 const RightSidebarCard = () => {
   const {games} = useContext(GamesContext);
@@ -24,6 +25,7 @@ const RightSidebarCard = () => {
     {
       topRatedGames.map((game, index) => 
         <div className="rs-card" key={index}>
+          <Link to={`/game/${game.id}`}>
           <div className="rs-card-img">
             <img src={game.background_image} alt={game.name} className="rs-card-thumbnail" />
           </div>
@@ -32,7 +34,8 @@ const RightSidebarCard = () => {
             <p className='rs-card-genre'>{game.genres[0].name}</p>
             <span><i>⭐</i> {game.rating}</span>
           </div>
-      </div>        
+          </Link>
+        </div>        
       )
     }
     </>

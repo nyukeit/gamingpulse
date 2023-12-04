@@ -1,6 +1,10 @@
+import GameDetails from "../components/GameDescription/GameDetails"
+
 const GameDescription = () => {
   return (
-    <div>GameDescription</div>
+    <div>
+      <GameDetails/>
+    </div>
   )
 }
 

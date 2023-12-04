@@ -1,6 +1,7 @@
 import {useContext} from 'react';
 import GamesContext from '../../contexts/GamesContext';
 import './Results.css';
+import { Link } from 'react-router-dom';
 
 export default function Results() {
   const {games, ParentPlatform} = useContext(GamesContext);
@@ -11,7 +12,8 @@ export default function Results() {
     <div className='results'>
     {
       randomGames.map((game) => 
-          <div className="bigcard" key={game.id}> 
+      <Link to={`/game/${game.id}`} key={game.id}>
+          <div className="bigcard" > 
            <div className="bigcard-img">
             <img src={game.background_image} alt={game.name} className="bigcard-thumbnail" />
           </div>
@@ -24,10 +26,10 @@ export default function Results() {
             <div className="bigcard-meta-footer">
               <span className='bigcard-rating'><i>⭐</i> {game.rating}</span>
               <span className='bigcard-rating'><i>🎯</i> {game.metacritic}</span>
-              {/* <span className='bigcard-rating'><i>🎯</i> {game.esrb_rating.name}</span> */}
             </div>
           </div>
         </div>
+        </Link>
         )
       }
     </div>
