@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import './gameDetails.css'
+import './GameDetails.css'
 
 const GameDetails = () => {
   const { id } = useParams();
@@ -36,36 +36,55 @@ const GameDetails = () => {
   return (
     <>
         <div className="game-details">
-        <div className="left-section">
+          <div className="left-section">
             <img id="detail-picture" src={gameDetails.background_image} alt={gameDetails.name} />
-            <div className='meta'>
-                <span className='bigcard-rating'><i>⭐</i> {gameDetails.rating}</span>
-                <span className='bigcard-rating'><i>🎯</i> {gameDetails.metacritic}</span>
+          </div>
+          <div className="right-section">
+              <div className='gamedetails-section'>
+                <h1 className='gamedetails-title'>{gameDetails.name}</h1>
+                <p className='gamedetails-section-text'>{(new Date(gameDetails.released).getFullYear())}</p>
+              </div>
+              <div className='gamedetails-ratings-section'>
+                <div className='rating-div'>
+                  <h6>Gaming Pulse</h6>
+                  <span className='gamedetails-rating'><i>⭐</i> {gameDetails.rating}</span>
+                </div>
+                <div className='rating-div'>
+                  <h6>Metacritic</h6>
+                  <span className='gamedetails-rating'><i>🎯</i> {gameDetails.metacritic}</span>
+                </div>
 
-            </div>
-            </div>
-        <div className="section-right">
-            <h1>{gameDetails.name}</h1>
-            <p>Released: {gameDetails.released}</p>
-            <p>
-                Genre :
-                {gameDetails.genres.map((genre, index) => (
-                <span key={index}>{genre.name}{index !== gameDetails.genres.length - 1 ? ', ' : ''}</span>
-                ))}
-            </p>
-            <p>Playtime: {gameDetails.playtime}</p>
-            <p>
-                Platform :
-                {gameDetails.parent_platforms.map((platform, index) => (
-                <span key={index}>{platform.platform.name}{index !== gameDetails.parent_platforms.length - 1 ? ', ' : ''}</span>
-                ))}
-            </p>
+              </div>
+              <div className='gamedetails-section'>
+                <span className='gamedetails-section-title'>Genres</span>
+                <p className='gamedetails-section-text'>
+                    {gameDetails.genres.map((genre, index) => (
+                    <span key={index}>{genre.name}{index !== gameDetails.genres.length - 1 ? ', ' : ''}</span>
+                    ))}
+                </p>
+              </div>
+              <div className='gamedetails-section'>
+                <span className='gamedetails-section-title'>Platforms</span>
+                <p className='gamedetails-section-text'>
+                    {gameDetails.parent_platforms.map((platform, index) => (
+                    <span key={index}>{platform.platform.name}{index !== gameDetails.parent_platforms.length - 1 ? ', ' : ''}</span>
+                    ))}
+                </p>
+              </div>
+          </div>
         </div>
-        </div>
-        <div className="description">
-            <p>
+        <div className="description-container">
+            <p className='description'>
                 {cleanDescription}
             </p> 
+        </div>
+        <div className='gamedetails-section-tags'>
+          <p className='gamedetails-section-title'><i>🏷️</i> Tags</p>
+          {
+            gameDetails.tags.map((tag, index) => (
+              <span className='gamedetails-tags' key={index}>{tag.name}{index !== gameDetails.tags.length - 1 ? ', ' : ''}</span>
+            ))
+          }
         </div>
     </>
   );

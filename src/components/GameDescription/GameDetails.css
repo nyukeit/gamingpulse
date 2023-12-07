@@ -1,31 +1,76 @@
 .game-details{
     display: flex;
-    justify-content: space-around;
-    width: 50vw;
-    padding-top: 2rem;
+    padding: 1.5em;
+}
+
+.gamedetails-title {
+    font-size: 1.8em;
+    text-align: left;
+    margin: 0;
 }
 
 .left-section{
-    max-width: 75%;
+    width: 50%;
 }
-.meta{
-    display: flex;
-    justify-content: space-around;
+
+.gamedetails-section {
+    text-align: left;
+    padding-bottom: 1.2em;
 }
+
 #detail-picture {
-    max-width: 400px;
-    max-height: 800px;
-    width: auto;
-    height: auto;
+    width: 100%;
     border-radius: 10px;
   }
-.section-right{
+
+.right-section{
+    display: flex;
+    flex-direction: column;
     text-align: left;
+    margin-left: 2em;
 }
-.section-right p{
-    padding-left: 2rem;
+
+.description-container {
+    padding: 1.5em;
+    border-top: 1px solid lightslategray;
+    border-bottom: 1px solid lightslategray;
 }
-.description{
+
+.description {
     text-align: justify;
-    padding-top: 2rem;
+    line-height: 1.8em;
+}
+
+.gamedetails-section-title {
+    font-weight: bold;
+}
+
+.gamedetails-section-text {
+    color: lightslategray;
+}
+
+h6 {
+    margin: 0;
+    color: lightslategray;
+}
+
+.gamedetails-ratings-section {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.2em;
+}
+
+.rating-div {
+    margin-right: 1.2em;
+}
+
+.gamedetails-tags {
+    font-size: 0.7em;
+    color: lightslategray;
+    margin-right: 1em;
+}
+
+.gamedetails-section-tags {
+    padding: 1.5em;
+    text-align: left;
 }
