@@ -23,7 +23,7 @@ const LeftNavigation = () => {
          <Link to="/" onClick={() => setParentPlatform('PC')}>PC</Link>
          </li>
        </ul>
-       <hr></hr>
+       {/* <hr></hr>
        <ul className='nav-list'>
        <li className="nav-item">
        <Link to="/" onClick={() => setParentPlatform('')}>Genres</Link>
@@ -37,7 +37,7 @@ const LeftNavigation = () => {
          <li className="nav-item">
          <Link to="/" onClick={() => setParentPlatform('PC')}>Tags</Link>
          </li>
-       </ul>
+       </ul> */}
        </div>
       <div className='footer'>
         <p className='copyright'>© 2023 Gaming Pulse</p>

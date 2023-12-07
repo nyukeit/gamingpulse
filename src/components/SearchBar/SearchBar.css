@@ -1,6 +1,6 @@
 .search-bar-container {
     background-color: #000000;
-    padding: 10px;
+    padding: 1em;
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
     z-index: 1000;
     text-align: center;}
@@ -13,19 +13,20 @@
 
 .search-bar {
     width: 100%;
-    max-width: 600px;
+    /* max-width: 600px; */
     margin: 0 auto;
     display: flex;
     justify-content: center;
 }
 
 .search-bar input[type="text"] {
+    width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 5px;
-    flex-grow: 1;
-    max-width: 200px;
+    border-radius: 10px;
+    /* margin-right: 5px; */
+    /* flex-grow: 1; */
+    /* max-width: 200px; */
 }
 
 .search-bar button {
@@ -54,4 +55,44 @@
     .search-bar button {
     padding: 6px 12px;
     }
+}
+
+.suggestions {
+    /* border: 1px solid white; */
+    text-align: left;
+    z-index: 10;
+    padding: 1em;
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 4px;
+}
+
+.suggestions-hidden {
+    display: none;
+}
+
+.suggestion-image {
+    width: 20px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.2em;
+}
+ 
+.suggestion-list {
+    list-style-type: none;
+    padding: 0;
+    /* margin-left: 1em; */
+    cursor: pointer;
+}
+
+.suggestions-platforms {
+    margin-left: auto;
+    font-size: 0.8em;
+    color: lightslategray;
 }
