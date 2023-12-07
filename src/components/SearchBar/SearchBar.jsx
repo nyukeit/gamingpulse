@@ -1,20 +1,30 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SearchBar.css';
+import { useNavigate } from 'react-router-dom';
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isSticky, setIsSticky] = useState(false);
   const [suggestions, setSuggestions] = useState([]);
   const [selectedSuggestion, setSelectedSuggestion] = useState('');
+  const icons = [
+    {
+      name: 'PC',
+      icon: 'https://worldvectorlogo.com/download/microsoft-windows-22.svg'
+    },
+    {
+      name: 'Apple Macintosh',
+      icon: 'https://worldvectorlogo.com/download/apple-14.svg'
+    }
+  ]
 
   const searchGames = async (term) => {
     try {
-      const response = await axios.get(`https://api.rawg.io/api/games?search=${term}`, {
-        headers: {
-          'Authorization': `Bearer ${process.env.REACT_APP_API_KEY}`, // Utilisation de la clé API à partir de .env
-        },
-      });
+      const response = await axios({
+        method: 'get',
+        url: `https://api.rawg.io/api/games?search=${term}&key=5bad98172a4a4656a957008bfc985ab1`,
+      })
       return response.data.results; // Récupérez les résultats ou les jeux correspondants
     } catch (error) {
       console.error('Erreur lors de la recherche de jeux : ', error);
@@ -33,11 +43,11 @@ const SearchBar = ({ onSearch }) => {
       setSuggestions([]);
     }
   };
+  
+  const gameLink = useNavigate();
 
-  const handleSuggestionClick = (suggestion) => {
-    setSearchTerm(suggestion.name); // Mettre à jour le terme de recherche avec la suggestion sélectionnée
-    setSelectedSuggestion(suggestion.name); // Mettre à jour la suggestion sélectionnée
-    setSuggestions([]); // Masquer les suggestions après la sélection
+  const handleGetGame = (suggestion) => {
+    gameLink(`/game/${suggestion.id}`);
   };
 
   const handleSubmit = async (event) => {
@@ -46,23 +56,23 @@ const SearchBar = ({ onSearch }) => {
     onSearch(results); // Exécuter la recherche finale avec les résultats
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const offset = window.scrollY;
 
-      if (offset > 0) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
-    };
+  //     if (offset > 0) {
+  //       setIsSticky(true);
+  //     } else {
+  //       setIsSticky(false);
+  //     }
+  //   };
 
-    window.addEventListener('scroll', handleScroll);
+  //   window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div className={`search-bar-container ${isSticky ? 'sticky' : ''}`}>
@@ -75,21 +85,26 @@ const SearchBar = ({ onSearch }) => {
             onChange={handleInputChange}
             className="search-input"
           />
-          <button type="submit" className="search-button">
+          {/* <button type="submit" className="search-button">
             Search
-          </button>
+          </button> */}
         </div>
         {/* Afficher les suggestions ici */}
-        <div className="suggestions">
-          {suggestions.map((suggestion) => (
-            <div
-              key={suggestion.id}
-              className={`suggestion-item ${selectedSuggestion === suggestion.name ? 'selected' : ''}`}
-              onClick={() => handleSuggestionClick(suggestion)}
-            >
-              {suggestion.name}
-            </div>
+        <div className={ suggestions.length > 0 ? 'suggestions' : 'suggestions-hidden'}>
+          <ul className='suggestion-list'>
+            {suggestions.map((suggestion) => (
+              <li key={suggestion.id} className="suggestion-item">
+                <div className='search-result-image'><img className="suggestion-image" src={suggestion.background_image}></img></div>
+                <div className='search-result-title'><a onClick={handleGetGame}>{suggestion.name}</a></div>
+                <div className='suggestions-platforms'>
+                  {suggestion.parent_platforms.map((platform, index) =>
+                    // <i key={index} className={`fa-s}`}></i>
+                    <span key={index}>{platform.platform.name}{index !== suggestion.parent_platforms.length - 1 ? ', ' : ''}</span>
+                  )}
+                </div>
+              </li>
           ))}
+          </ul>
         </div>
       </form>
     </div>
