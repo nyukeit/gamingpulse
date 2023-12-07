@@ -97,8 +97,9 @@ const SearchBar = () => {
                 <div className='search-result-image'><img className="suggestion-image" src={suggestion.background_image}></img></div>
                 <div className='search-result-title'><a onClick={handleGetGame}>{suggestion.name}</a></div>
                 <div className='suggestions-platforms'>
-                  {suggestion.parent_platforms.map((platform, index) =>
-                    // <i key={index} className={`fa-s}`}></i>
+                  { suggestion.parent_platforms === undefined ? <h3>Sorry, no matches</h3> :
+                    suggestion.parent_platforms.map((platform, index) =>
+                    platform.platform === undefined ? <h3>Sorry, no matches</h3> :
                     <span key={index}>{platform.platform.name}{index !== suggestion.parent_platforms.length - 1 ? ', ' : ''}</span>
                   )}
                 </div>
