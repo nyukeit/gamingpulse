@@ -12,8 +12,8 @@ export default function Results() {
     <div className='results'>
     {
       randomGames.map((game) => 
-      <Link to={`/game/${game.id}`} key={game.id}>
           <div className="bigcard" > 
+      <Link to={`/game/${game.id}`} key={game.id}>
            <div className="bigcard-img">
             <img src={game.background_image} alt={game.name} className="bigcard-thumbnail" />
           </div>
@@ -28,8 +28,8 @@ export default function Results() {
               <span className='bigcard-rating'><i>🎯</i> {game.metacritic}</span>
             </div>
           </div>
-        </div>
         </Link>
+        </div>
         )
       }
     </div>
